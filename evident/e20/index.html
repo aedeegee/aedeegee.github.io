@@ -17,6 +17,7 @@
     @media(max-width:900px){.analysis-grid{grid-template-columns:1fr}.path-grid{grid-template-columns:1fr}}@media(max-width:760px){.filters{grid-template-columns:1fr}.reasoning{grid-template-columns:1fr}.hero{padding-top:38px;padding-bottom:42px}.hero h1{font-size:44px}.story{padding:20px 16px}.result-head{align-items:start;flex-direction:column}}
     body{font-size:16px}.hero small,.panel-head small,label{font-size:11px}.hero p{font-size:17px}.panel-head p{font-size:13px}.claim b{font-size:15px}.claim small{font-size:10px}.reasoning button b{font-size:11px}.reasoning button small{font-size:11px}.method{font-size:12px}.result-head span,.meta{font-size:12px}.summary{font-size:15px}.cue{font-size:10px}.cue-note{font-size:12px}.paths>small{font-size:10px}.path b,.path em{font-size:9px}.path strong{font-size:12px}.footer{font-size:11px}
     @media(max-width:760px){header{padding:14px 16px}.desk-link{padding:8px;font-size:9px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.hero p{font-size:16px}.filters{padding:14px}.analysis-grid{gap:12px}.panel{padding:17px 14px}.panel-head h2{font-size:28px}.claim{grid-template-columns:26px minmax(0,1fr) 45px;padding:11px 8px}.claim b{font-size:15px}.reasoning button{min-height:62px}.result-head h2{font-size:30px}.story h3{font-size:25px}.summary{font-size:15px}.cues{align-items:flex-start}.cue-note{flex-basis:100%;line-height:1.45}.footer{align-items:flex-start;flex-direction:column}.load{min-height:48px}}
+    .library-kicker{display:block;margin-bottom:5px;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.result-head>span{font-size:12px}
   </style>
 </head>
 <body>
@@ -52,7 +53,7 @@
         </section>
       </div>
     </section>
-    <div class="result-head"><h2>Evidence library</h2><span id="count">Loading evidence…</span></div>
+    <div class="result-head"><div><span class="library-kicker">Evidence library</span><h2 id="count">Loading evidence...</h2></div><span>Newest first · reviewed source set</span></div>
     <section id="list" class="list" aria-live="polite"></section>
     <button id="load" class="load" hidden>Load more</button>
   </main>

@@ -17,11 +17,12 @@
     @media(max-width:900px){.analysis-grid{grid-template-columns:1fr}.path-grid{grid-template-columns:1fr}}@media(max-width:760px){.filters{grid-template-columns:1fr}.reasoning{grid-template-columns:1fr}.hero{padding-top:38px;padding-bottom:42px}.hero h1{font-size:44px}.story{padding:20px 16px}.result-head{align-items:start;flex-direction:column}}
     body{font-size:16px}.hero small,.panel-head small,label{font-size:11px}.hero p{font-size:17px}.panel-head p{font-size:13px}.claim b{font-size:15px}.claim small{font-size:10px}.reasoning button b{font-size:11px}.reasoning button small{font-size:11px}.method{font-size:12px}.result-head span,.meta{font-size:12px}.summary{font-size:15px}.cue{font-size:10px}.cue-note{font-size:12px}.paths>small{font-size:10px}.path b,.path em{font-size:9px}.path strong{font-size:12px}.footer{font-size:11px}
     @media(max-width:760px){header{padding:14px 16px}.desk-link{padding:8px;font-size:9px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:43px}.hero p{font-size:16px}.filters{padding:14px}.analysis-grid{gap:12px}.panel{padding:17px 14px}.panel-head h2{font-size:28px}.claim{grid-template-columns:26px minmax(0,1fr) 45px;padding:11px 8px}.claim b{font-size:15px}.reasoning button{min-height:62px}.result-head h2{font-size:30px}.story h3{font-size:25px}.summary{font-size:15px}.cues{align-items:flex-start}.cue-note{flex-basis:100%;line-height:1.45}.footer{align-items:flex-start;flex-direction:column}.load{min-height:48px}}
-    .library-kicker{display:block;margin-bottom:5px;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.result-head>span{font-size:12px}
+    .library-kicker{display:block;margin-bottom:5px;color:var(--purple);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.result-head>span{font-size:12px}.as-of{padding:10px clamp(22px,5vw,72px);border-bottom:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.04em;text-align:right}
   </style>
 </head>
 <body>
   <header><span class="mark">E20</span><span class="brand">Evidence Desk</span><a class="desk-link" href="../">All topics →</a></header>
+  <div class="as-of">Information current through 5 September 2026</div>
   <section class="hero">
     <small>India · Ethanol blending</small>
     <h1>Follow the evidence behind India’s E20 debate.</h1>
@@ -73,7 +74,7 @@
     };
     const state={items:[],query:"",topic:"all",publisher:"all",reasoning:"all",claim:"all",visible:24};
     const esc=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-    const clean=value=>String(value??"").replace(/[, –]/g,",");
+    const clean=value=>String(value??"").replace(/–/g,",");
     function position(item){const text=`${item.headline} ${item.summary}`.toLowerCase();if(/\b(no impact|safe|benefit|boost|saving|ready|myth|clarif|defend|unstoppable|success|advantage)\b/.test(text))return"supports";if(/\b(concern|complain|damage|drop|reduce|risk|against|protest|challenge|problem|worr|rushed|water|food security|no assessment|critici|backlash|petition)\b/.test(text))return"challenges";return"neutral"}
     function evidenceFunction(item){const text=`${item.headline} ${item.summary}`.toLowerCase();if(item.source_class==="government"||/\b(supreme court|rajya sabha|lok sabha|parliament|government says|centre says|official|ministry|factsheet)\b/.test(text))return"primary";if(/\b(study|survey|data|report|finds|according to|analysis|test|research|assessment|figures)\b/.test(text))return"corroborates";return"explains"}
     function claim(item){const text=`${item.headline} ${item.summary}`.toLowerCase();if(/\b(mileage|fuel efficiency|kilomet|kmpl)\b/.test(text))return"mileage";if(/\b(engine|vehicle|compatib|warranty|insurance|older car|older vehicle)\b/.test(text))return"vehicle_safety";if(/\b(price|cost|cheaper|expensive|saving)\b/.test(text))return"consumer_cost";if(/\b(supreme court|petition|experiment|rajya sabha|lok sabha|parliament|assessment|transparen)\b/.test(text))return"accountability";if(/\b(water|sugarcane|maize|rice|farmer|food security|crop|agricultur)\b/.test(text))return"agriculture";if(/\b(emission|climate|carbon|environment|pollution)\b/.test(text))return"environment";if(/\b(e25|e27|e30|higher blend|beyond e20)\b/.test(text))return"higher_blends";return"policy_case"}

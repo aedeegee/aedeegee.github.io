@@ -8,7 +8,7 @@
   <style>
     :root{--ink:#21172b;--muted:#6f6479;--paper:#f6f2f8;--panel:#fcfaff;--line:#d9cfe0;--purple:#55326f;--deep:#39204e;--lavender:#d9baf1;--green:#247a45;--red:#b23a35;--gray:#706b74;--blue:#326aa3}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,input,select{font:inherit}a{color:inherit}
-    header{padding:19px clamp(22px,5vw,72px);background:var(--deep);color:#fff;display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--lavender);color:var(--deep);font-size:12px;font-weight:800}.brand{font-weight:800}
+    header{padding:19px clamp(22px,5vw,72px);background:var(--deep);color:#fff;display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--lavender);color:var(--deep);font-size:12px;font-weight:800}.brand{font-weight:800}.desk-link{margin-left:auto;padding:9px 12px;border:1px solid #ffffff66;text-decoration:none;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.desk-link:hover{background:#fff;color:var(--deep)}
     .hero{padding:50px clamp(22px,8vw,120px);background:var(--purple);color:#fff}.hero small{color:var(--lavender);text-transform:uppercase;letter-spacing:.16em;font-weight:800}.hero h1{max-width:900px;margin:16px 0;font:400 clamp(42px,6vw,76px)/1 Georgia,serif;letter-spacing:-.045em}.hero p{max-width:680px;color:#eadff0;line-height:1.55}
     main{max-width:1450px;margin:auto;padding:42px clamp(20px,5vw,72px) 80px}.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;padding:18px;border:1px solid var(--line);background:var(--panel)}label{display:grid;gap:7px;color:var(--muted);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}input,select{width:100%;height:46px;padding:0 12px;border:1px solid var(--line);background:#fff;color:var(--ink);outline:0}input:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 2px #55326f22}
     .analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 28px}.panel{padding:22px;border:1px solid var(--line);background:var(--panel)}.panel-head{margin-bottom:15px}.panel-head small{color:var(--purple);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.panel-head h2{margin:6px 0 0;font:400 24px Georgia,serif}.panel-head p{margin:7px 0 0;color:var(--muted);font-size:10px;line-height:1.4}.claims{display:grid;gap:6px}.claim{display:grid;grid-template-columns:30px 1fr 56px;gap:10px;align-items:center;width:100%;padding:9px;border:1px solid var(--line);background:#fff;text-align:left;cursor:pointer}.claim:hover,.claim.active{border-color:var(--purple);background:#eee4f4}.claim-rank{color:#9a8fa0;font:12px Georgia,serif}.claim b{display:block;font:400 12px/1.25 Georgia,serif}.claim small{display:block;margin-top:3px;color:var(--muted);font-size:7px;text-transform:uppercase;letter-spacing:.06em}.bar{height:4px;background:#e5dce9}.bar i{display:block;height:100%;background:var(--purple)}
@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <header><span class="mark">E20</span><span class="brand">Evidence Desk</span></header>
+  <header><span class="mark">E20</span><span class="brand">Evidence Desk</span><a class="desk-link" href="./gdp/">GDP desk →</a></header>
   <section class="hero">
     <small>India · Ethanol blending</small>
     <h1>Follow the evidence behind India’s E20 debate.</h1>

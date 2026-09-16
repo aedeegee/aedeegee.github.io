@@ -46,18 +46,28 @@ img,svg{max-width:100%}
 
 /* masthead */
 .mast{border-top:6px solid var(--njit-red);background:var(--surface);border-bottom:1px solid var(--rule)}
-.mast .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.mast .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:16px;padding-bottom:16px}
+.mast-left{display:flex;flex-direction:column;gap:10px;min-width:0}
+.mast strong{font-size:1.15rem}
+.mast .dept{text-decoration:none;border-bottom:2px solid var(--njit-red)}
+.mast .dept:hover{color:var(--njit-red)}
+.logo{flex:0 0 auto;display:block;line-height:0;text-decoration:none}
+.logo img{height:64px;width:auto;display:block}
+.logo-text{font:800 2.4rem/1 var(--sans);color:var(--njit-red);letter-spacing:-.02em}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .logo img{background:#fff;padding:6px 10px;border-radius:8px} }
+:root[data-theme="dark"] .logo img{background:#fff;padding:6px 10px;border-radius:8px}
 .mast strong{font-weight:700;letter-spacing:-.01em}
-.mast nav{display:flex;gap:20px;font-size:15px;flex-wrap:wrap}
-.mast nav a{text-decoration:none;color:var(--ink-soft)}
+.mast nav{display:flex;gap:6px 16px;font-size:14px;flex-wrap:wrap}
+.mast nav a{text-decoration:none;color:var(--ink-soft);font-weight:600;text-underline-offset:4px}
 .mast nav a:hover{color:var(--ink);text-decoration:underline}
 
 /* hero */
 .hero{padding:64px 0 28px}
-.hero h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 22px;max-width:15ch}
-.hero p.lede{font-family:var(--serif);font-size:1.2rem;line-height:1.6;color:var(--ink-soft);max-width:60ch;margin:0}
+.hero h1{font-size:clamp(2.1rem,4.1vw,3.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 22px;max-width:none}
+.hero p.lede{font-family:var(--serif);font-size:1.2rem;line-height:1.6;color:var(--ink-soft);max-width:none;margin:0}
 .hint{font-size:15px;color:var(--ink-soft);margin:36px 0 10px}
 
+b.term{font-weight:600;color:var(--cc);background:color-mix(in srgb,var(--cc) 13%,transparent);padding:0 .22em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 /* membership map: the one bold element */
 .map{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:18px 10px 10px;overflow-x:auto}
 .map svg{display:block;min-width:760px;width:100%;height:auto}
@@ -78,16 +88,16 @@ img,svg{max-width:100%}
 .legend span.core::before{border-top-style:solid}
 
 /* clusters: grid of cards */
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:64px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 40px;margin-top:64px}
 .cluster{scroll-margin-top:12px;background:var(--surface);border:1px solid var(--rule);border-top:6px solid var(--cc);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.art{aspect-ratio:16/7;border-bottom:1px solid var(--rule)}
+.art{height:140px;overflow:hidden;border-bottom:1px solid var(--rule)}
 .art svg{display:block;width:100%;height:100%}
 .cl-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
 .cluster h2{font-size:clamp(1.35rem,2.1vw,1.7rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 12px;font-weight:800;color:var(--cc)}
 .cluster .desc{font-family:var(--serif);font-size:1rem;line-height:1.65;margin:0 0 12px}
 .questions{font-family:var(--serif);font-size:.95rem;line-height:1.55;color:var(--ink-soft);margin:0 0 20px;padding-left:1.1em}
 .questions li{margin:3px 0}
-.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:auto}
+.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:auto}
 .person{display:flex;gap:10px;align-items:center;padding:8px 10px 8px 8px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--cc);border-radius:9px;text-decoration:none;min-width:0}
 .person:hover{border-color:var(--cc)}
 .person.joint{border-left-style:dashed}
@@ -106,33 +116,76 @@ img,svg{max-width:100%}
 .apply li{margin:0 0 10px}
 .apply a{color:inherit;text-underline-offset:3px}
 .btn{display:inline-block;margin-top:20px;background:var(--njit-red);color:#fff!important;text-decoration:none;font-family:var(--sans);font-weight:700;padding:12px 20px;border-radius:8px}
-footer{padding:22px 0 40px;font-size:13.5px;color:var(--ink-soft)}
+
+/* mobile membership list (replaces the wide diagram on small screens) */
+.mmap{display:none}
+.mmap .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.mmap .chip{font:600 13px var(--sans);padding:6px 11px;border-radius:99px;border:1.5px solid var(--cc);color:var(--cc);background:transparent;cursor:pointer}
+.mmap .chip[aria-pressed="true"]{background:var(--cc);color:var(--surface)}
+.mmap ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.mmap li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--rule)}
+.mmap li.dim{opacity:.3}
+.mmap li a{font-size:15px;font-weight:600;text-decoration:none}
+.mmap li small{font-weight:400;color:var(--ink-soft);margin-left:4px}
+.mmap .dots{display:flex;gap:5px;flex:0 0 auto}
+.mmap .dot{width:11px;height:11px;border-radius:50%;background:var(--cc)}
 
 @media (max-width:860px){
-  .grid{grid-template-columns:1fr}
-  .apply .wrap{grid-template-columns:1fr}
-  .hero{padding-top:40px}
+  .grid{grid-template-columns:1fr;gap:32px;margin-top:44px}
+  .apply .wrap{grid-template-columns:1fr;gap:28px}
+  .hero{padding-top:36px}
+  .map{display:none}
+  .legend{display:none}
+  .mmap{display:block}
 }
 @media (max-width:1060px) and (min-width:861px){ .people{grid-template-columns:1fr} }
-@media (max-width:560px){ .wrap{padding:0 18px} .people{grid-template-columns:1fr} }
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .mast .wrap{align-items:flex-start;gap:12px}
+  .mast strong{font-size:15px}
+  .logo img{height:40px}
+  .logo-text{font-size:1.6rem}
+  .mast nav{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:16px;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .mast nav a{white-space:nowrap;padding:6px 0}
+  .hero h1{font-size:2.1rem;letter-spacing:-.025em}
+  .hero p.lede{font-size:1.05rem}
+  .hint{margin-top:26px}
+  .art{height:110px}
+  .cl-body{padding:18px 16px 18px}
+  .people{grid-template-columns:1fr}
+  .person{padding:10px}
+  .apply{margin-top:64px}
+  .apply .wrap{padding-top:40px;padding-bottom:40px}
+  .apply h2{font-size:1.6rem}
+  .btn{display:block;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <header class="mast">
   <div class="wrap">
-    <strong>Department of Data Science &middot; NJIT Ying Wu College of Computing</strong>
-    <nav aria-label="Clusters" id="topnav"></nav>
+    <div class="mast-left">
+      <strong><a class="dept" href="https://ds.njit.edu/">Department of Data Science</a> @ NJIT</strong>
+      <nav aria-label="Clusters" id="topnav"></nav>
+    </div>
+    <a class="logo" href="https://www.njit.edu/" aria-label="New Jersey Institute of Technology home">
+      <img src="njit-logo.svg" alt="NJIT: New Jersey Institute of Technology"
+           data-fallbacks="https://upload.wikimedia.org/wikipedia/commons/4/40/New_Jersey_IT_logo.svg|data:image/png;base64,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"
+           onerror="const f=this.dataset.fallbacks.split('|');if(f.length){this.src=f.shift();this.dataset.fallbacks=f.join('|');}else{this.onerror=null;}">
+    </a>
   </div>
 </header>
 
 <main>
   <section class="hero wrap">
     <h1>Data Science and AI Research Clusters</h1>
-    <p class="lede">Our PhD students work in six research clusters. Most faculty belong to more than one, so each cluster below lists everyone you could work with on those questions.</p>
+    <p class="lede">Our six research clusters span the full breadth of AI and data science research: from foundational principles of <b class="term" style="--cc:var(--c-foundations)">large language models (LLMs)</b>, <b class="term" style="--cc:var(--c-foundations)">transformers</b>, and <b class="term" style="--cc:var(--c-foundations)">reinforcement learning</b>, to human-centered questions in <b class="term" style="--cc:var(--c-human)">explainable AI</b>, <b class="term" style="--cc:var(--c-human)">visual analytics</b>, and <b class="term" style="--cc:var(--c-human)">AI in education</b>; from <b class="term" style="--cc:var(--c-trust)">privacy-preserving and trustworthy AI</b> to <b class="term" style="--cc:var(--c-systems)">high-performance graph analytics</b> and <b class="term" style="--cc:var(--c-systems)">big data systems</b>; and on to application areas such as <b class="term" style="--cc:var(--c-health)">AI for health</b>, <b class="term" style="--cc:var(--c-health)">genomics</b>, <b class="term" style="--cc:var(--c-society)">scientific machine learning</b>, and <b class="term" style="--cc:var(--c-society)">FinTech</b>. Many faculty belong to more than one cluster, and each cluster below lists all of its affiliated faculty.</p>
     <p class="lede" style="margin-top:14px"><strong>To PhD applicants:</strong> start with the questions that excite you, then reach out 1:1 to the people listed.</p>
     <p class="hint" id="maphint">Hover or tap a name to see every cluster that faculty member advises in. Tap a cluster to jump to it.</p>
     <div class="map" id="map" role="figure" aria-labelledby="maphint"></div>
+    <div class="mmap" id="mmap"></div>
     <div class="legend"><span class="core">Core Data Science faculty</span><span>Joint appointment</span></div>
   </section>
 
@@ -143,7 +196,7 @@ footer{padding:22px 0 40px;font-size:13.5px;color:var(--ink-soft)}
       <div>
         <h2>Applying to the PhD program</h2>
         <p>Admission is to the department, and you choose an advisor with their agreement. Naming the faculty you want to work with in your statement helps us route your application to the right readers.</p>
-        <a class="btn" href="https://ds.njit.edu/graduate-programs">See PhD program details</a>
+        <a class="btn" href="https://ds.njit.edu/phd-data-science">See PhD program details</a>
       </div>
       <ol>
         <li>Read the cluster descriptions and pick one or two that match your interests.</li>
@@ -155,7 +208,6 @@ footer{padding:22px 0 40px;font-size:13.5px;color:var(--ink-soft)}
   </section>
 </main>
 
-<footer class="wrap">Draft proposal for the Department of Data Science research pages. Faculty focus lines are drawn from public faculty homepages and NJIT profiles; please confirm with each faculty member before publishing.</footer>
 
 <script>
 const NJIT = uid => `https://people.njit.edu/profile/${uid}`;
@@ -164,7 +216,7 @@ const PHOTO = uid => `https://uws.njit.edu/ldapimage.php?format=full&uid=${uid}`
 const faculty = {
   bader:   {name:"David Bader", uid:"bader", url:"https://davidbader.net/", focus:"Massive-scale graph analytics and parallel computing"},
   dasgupta:{name:"Aritra Dasgupta", uid:"dasg018", url:"https://aedeegee.github.io/", focus:"Visual analytics, human-AI collaboration, and reasoning"},
-  geller:  {name:"James Geller", uid:"geller", url:"http://web.njit.edu/~geller", focus:"Medical informatics, ontologies, and LLM-assisted knowledge engineering", note:"Chair"},
+  geller:  {name:"James Geller", uid:"geller", url:"https://web.njit.edu/~geller/", focus:"Medical informatics, ontologies, and LLM-assisted knowledge engineering", note:"Chair"},
   hou:     {name:"Xinying Hou", uid:null, url:"https://xinyinghou.org/", focus:"AI in education, computing education, and AI literacy", note:"New"},
   lijingw: {name:"Lijing Wang", uid:"lw29", url:"https://christa60.github.io/", focus:"Theory-guided ML for networks, time series, and health"},
   lingxw:  {name:"Lingxiao Wang", uid:"lw324", url:"https://lingxiaowang-ai.github.io/", focus:"Privacy-preserving, distributed, and federated learning"},
@@ -182,7 +234,7 @@ const faculty = {
   ghosh:   {name:"Arnob Ghosh", uid:"ag2682", url:"https://sites.google.com/site/arnob008/", focus:"Safe reinforcement learning and multi-agent systems", joint:"ECE"},
   jin:     {name:"Huiran Jin", uid:"hrjin", url:"https://scholar.google.com/citations?user=3nVviVoAAAAJ&hl=en", focus:"Remote sensing and spatiotemporal environmental modeling", joint:"SAET"},
   jingli:  {name:"Jing Li", uid:"jingli", url:"https://web.njit.edu/~jingli/", focus:"Parallel computing, real-time systems, and RL for system design", joint:"CS"},
-  murphy:  {name:"Kieran Murphy", uid:"km982", url:"https://kieranamurphy.com", focus:"Information theory, interpretable ML, and complex systems", joint:"CS"},
+  murphy:  {name:"Kieran Murphy", uid:"km982", url:"https://kieranamurphy.com/", focus:"Information theory, interpretable ML, and complex systems", joint:"CS"},
   sharma:  {name:"Shantanu Sharma", uid:"ss797", url:"https://web.njit.edu/~ss797/", focus:"Database security, privacy, and IoT data systems", joint:"CS"},
   shen:    {name:"Bo Shen", uid:"bs644", url:"https://sites.google.com/view/boshen", focus:"Physics-informed and generative AI for science and manufacturing", joint:"MIE"},
   gwang:   {name:"Guiling Wang", uid:"gwang", url:"https://guilinggracewang.github.io/", focus:"Applied AI and LLMs for finance, transportation, and law", joint:"CS"},
@@ -225,7 +277,6 @@ const clusters = [
 const initials = n => n.split(" ").map(w=>w[0]).filter((c,i,a)=>i===0||i===a.length-1).join("");
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 
-/* ---------- cluster art: generated, self-contained SVG ---------- */
 function rng(seed){ let s=seed; return ()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0, s=(s^s+Math.imul(s^s>>>7,61|s))^s, ((s^s>>>14)>>>0)/4294967296)); }
 function art(id){
   const W=400,H=300; const c=`var(${clusters.find(k=>k.id===id).color})`; let g="";
@@ -271,14 +322,14 @@ function art(id){
       g+=`<path d="${d}" fill="var(--surface)" stroke="${c}" stroke-opacity="${.3+l*.05}" stroke-width="1.3"/>`;}
     g+=`<circle cx="320" cy="50" r="18" fill="none" stroke="${c}" stroke-width="2"/>`;
   }
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Abstract illustration for ${esc(clusters.find(k=>k.id===id).title)}" preserveAspectRatio="xMidYMid slice" style="color:var(--ink)">${g}</svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Abstract illustration for ${esc(clusters.find(k=>k.id===id).title)}" preserveAspectRatio="xMidYMid meet" style="color:var(--ink)">${g}</svg>`;
 }
 
 /* ---------- cluster sections ---------- */
 const host=document.getElementById("clusters");
 const nav=document.getElementById("topnav");
 clusters.forEach(k=>{
-  nav.insertAdjacentHTML("beforeend",`<a href="#${k.id}">${esc(k.short)}</a>`);
+  nav.insertAdjacentHTML("beforeend",`<a href="#${k.id}" style="color:var(${k.color})">${esc(k.short)}</a>`);
   const people=k.people.map(pid=>{const f=faculty[pid];
     const av=f.uid?`<img src="${PHOTO(f.uid)}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${initials(f.name)}'))">`:initials(f.name);
     const tag=f.joint?`<span class="tag">Joint, ${f.joint}</span>`:(f.note?`<span class="tag">${f.note}</span>`:"");
@@ -342,6 +393,21 @@ nav.insertAdjacentHTML("beforeend",`<a href="#apply">Apply</a>`);
     g.addEventListener("keydown",e=>{if(e.key==="Enter")go();});
   });
   map.addEventListener("mouseleave",clear);
+
+  // mobile version: filter chips + faculty rows with cluster dots
+  const mm=document.getElementById("mmap");
+  const chips=clusters.map(k=>`<button class="chip" style="--cc:var(${k.color})" data-c="${k.id}" aria-pressed="false">${esc(k.short)}</button>`).join("");
+  const rows=order.map(p=>{const f=faculty[p]; const ks=clusters.filter(k=>k.people.includes(p));
+    return `<li data-c="${ks.map(k=>k.id).join(" ")}"><a href="${f.url}" target="_blank" rel="noopener">${esc(f.name)}${f.joint?`<small>joint, ${f.joint}</small>`:""}</a>
+      <span class="dots" aria-label="${ks.map(k=>esc(k.short)).join(", ")}">${ks.map(k=>`<span class="dot" style="--cc:var(${k.color})" title="${esc(k.short)}"></span>`).join("")}</span></li>`;}).join("");
+  mm.innerHTML=`<div class="chips">${chips}</div><ul>${rows}</ul>`;
+  mm.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+    const on=b.getAttribute("aria-pressed")!=="true";
+    mm.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed",String(on));
+    mm.querySelectorAll("li").forEach(li=>li.classList.toggle("dim", on && !li.dataset.c.split(" ").includes(b.dataset.c)));
+  }));
+  if(matchMedia("(max-width:860px)").matches) document.getElementById("maphint").textContent="Tap a cluster to see who advises in it. Colored dots show every cluster a faculty member belongs to.";
 })();
 </script>
 </body>

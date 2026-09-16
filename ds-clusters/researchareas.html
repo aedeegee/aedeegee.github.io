@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhD Research Clusters | Department of Data Science, NJIT</title>
+<meta name="description" content="Research clusters and faculty advisors for prospective PhD students in the NJIT Department of Data Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F9;
+  --surface:#FFFFFF;
+  --ink:#16213A;
+  --ink-soft:#4A5470;
+  --rule:#D9DDE6;
+  --njit-red:#C8102E;
+  --c-foundations:#3F4BA8;
+  --c-human:#1F7A73;
+  --c-trust:#8A3A6E;
+  --c-systems:#A96A12;
+  --c-health:#B23A3A;
+  --c-society:#4F7A2E;
+  --sans:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --serif:"Literata", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11172A; --surface:#182038; --ink:#E8EBF3; --ink-soft:#A9B1C7; --rule:#2C3654;
+    --c-foundations:#8E97F0; --c-human:#5CC2B8; --c-trust:#D98BC0; --c-systems:#E3A94F; --c-health:#EE8080; --c-society:#9CCB6F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11172A; --surface:#182038; --ink:#E8EBF3; --ink-soft:#A9B1C7; --rule:#2C3654;
+  --c-foundations:#8E97F0; --c-human:#5CC2B8; --c-trust:#D98BC0; --c-systems:#E3A94F; --c-health:#EE8080; --c-society:#9CCB6F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--njit-red);outline-offset:2px;border-radius:4px}
+img,svg{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* masthead */
+.mast{border-top:6px solid var(--njit-red);background:var(--surface);border-bottom:1px solid var(--rule)}
+.mast .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.mast strong{font-weight:700;letter-spacing:-.01em}
+.mast nav{display:flex;gap:20px;font-size:15px;flex-wrap:wrap}
+.mast nav a{text-decoration:none;color:var(--ink-soft)}
+.mast nav a:hover{color:var(--ink);text-decoration:underline}
+
+/* hero */
+.hero{padding:64px 0 28px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 22px;max-width:15ch}
+.hero p.lede{font-family:var(--serif);font-size:1.2rem;line-height:1.6;color:var(--ink-soft);max-width:60ch;margin:0}
+.hint{font-size:15px;color:var(--ink-soft);margin:36px 0 10px}
+
+/* membership map: the one bold element */
+.map{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:18px 10px 10px;overflow-x:auto}
+.map svg{display:block;min-width:760px;width:100%;height:auto}
+.map .edge{fill:none;stroke-width:1.6;opacity:.42;transition:opacity .2s, stroke-width .2s}
+.map.focus .edge{opacity:.06}
+.map.focus .edge.on{opacity:.95;stroke-width:2.6}
+.map .fac text{font-size:13.5px;fill:var(--ink);cursor:pointer}
+.map .fac .joint{fill:var(--ink-soft)}
+.map.focus .fac{opacity:.3}
+.map.focus .fac.on{opacity:1}
+.map .fac.on text{font-weight:700}
+.map .clu text{font-size:15px;font-weight:700;cursor:pointer}
+.map.focus .clu{opacity:.35}
+.map.focus .clu.on{opacity:1}
+.map .count{font-size:12px;font-weight:500;fill:var(--ink-soft)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);margin:10px 4px 0}
+.legend span::before{content:"";display:inline-block;width:18px;height:0;border-top:2px dashed var(--ink-soft);vertical-align:middle;margin-right:6px}
+.legend span.core::before{border-top-style:solid}
+
+/* clusters: grid of cards */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:64px}
+.cluster{scroll-margin-top:12px;background:var(--surface);border:1px solid var(--rule);border-top:6px solid var(--cc);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.art{aspect-ratio:16/7;border-bottom:1px solid var(--rule)}
+.art svg{display:block;width:100%;height:100%}
+.cl-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.cluster h2{font-size:clamp(1.35rem,2.1vw,1.7rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 12px;font-weight:800;color:var(--cc)}
+.cluster .desc{font-family:var(--serif);font-size:1rem;line-height:1.65;margin:0 0 12px}
+.questions{font-family:var(--serif);font-size:.95rem;line-height:1.55;color:var(--ink-soft);margin:0 0 20px;padding-left:1.1em}
+.questions li{margin:3px 0}
+.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:auto}
+.person{display:flex;gap:10px;align-items:center;padding:8px 10px 8px 8px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--cc);border-radius:9px;text-decoration:none;min-width:0}
+.person:hover{border-color:var(--cc)}
+.person.joint{border-left-style:dashed}
+.avatar{flex:0 0 40px;width:40px;height:40px;border-radius:50%;overflow:hidden;background:color-mix(in srgb,var(--cc) 16%,var(--surface));display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--cc)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.person .nm{font-weight:700;font-size:14.5px;line-height:1.25}
+.person .fx{font-size:12.5px;line-height:1.35;color:var(--ink-soft);margin-top:2px}
+.person .tag{display:inline-block;font-size:11px;font-weight:600;padding:0 6px;border-radius:99px;margin-left:5px;vertical-align:1px;background:color-mix(in srgb,var(--cc) 14%,transparent);color:var(--cc)}
+
+/* apply */
+.apply{margin:96px 0 0;background:var(--ink);color:var(--paper)}
+.apply .wrap{padding-top:56px;padding-bottom:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.apply h2{font-size:2rem;letter-spacing:-.02em;margin:0 0 12px}
+.apply p,.apply ol{font-family:var(--serif);line-height:1.65;margin:0}
+.apply ol{padding-left:1.2em}
+.apply li{margin:0 0 10px}
+.apply a{color:inherit;text-underline-offset:3px}
+.btn{display:inline-block;margin-top:20px;background:var(--njit-red);color:#fff!important;text-decoration:none;font-family:var(--sans);font-weight:700;padding:12px 20px;border-radius:8px}
+footer{padding:22px 0 40px;font-size:13.5px;color:var(--ink-soft)}
+
+@media (max-width:860px){
+  .grid{grid-template-columns:1fr}
+  .apply .wrap{grid-template-columns:1fr}
+  .hero{padding-top:40px}
+}
+@media (max-width:1060px) and (min-width:861px){ .people{grid-template-columns:1fr} }
+@media (max-width:560px){ .wrap{padding:0 18px} .people{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <strong>Department of Data Science &middot; NJIT Ying Wu College of Computing</strong>
+    <nav aria-label="Clusters" id="topnav"></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1>Data Science and AI Research Clusters</h1>
+    <p class="lede">Our PhD students work in six research clusters. Most faculty belong to more than one, so each cluster below lists everyone you could work with on those questions.</p>
+    <p class="lede" style="margin-top:14px"><strong>To PhD applicants:</strong> start with the questions that excite you, then reach out 1:1 to the people listed.</p>
+    <p class="hint" id="maphint">Hover or tap a name to see every cluster that faculty member advises in. Tap a cluster to jump to it.</p>
+    <div class="map" id="map" role="figure" aria-labelledby="maphint"></div>
+    <div class="legend"><span class="core">Core Data Science faculty</span><span>Joint appointment</span></div>
+  </section>
+
+  <div class="wrap"><div class="grid" id="clusters"></div></div>
+
+  <section class="apply" id="apply">
+    <div class="wrap">
+      <div>
+        <h2>Applying to the PhD program</h2>
+        <p>Admission is to the department, and you choose an advisor with their agreement. Naming the faculty you want to work with in your statement helps us route your application to the right readers.</p>
+        <a class="btn" href="https://ds.njit.edu/graduate-programs">See PhD program details</a>
+      </div>
+      <ol>
+        <li>Read the cluster descriptions and pick one or two that match your interests.</li>
+        <li>Visit the homepages of two or three listed faculty and read a recent paper from each.</li>
+        <li>Email them briefly: what you read, what question it raised for you, and when you plan to apply.</li>
+        <li>In your statement of purpose, name those faculty and the cluster questions you want to pursue.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Draft proposal for the Department of Data Science research pages. Faculty focus lines are drawn from public faculty homepages and NJIT profiles; please confirm with each faculty member before publishing.</footer>
+
+<script>
+const NJIT = uid => `https://people.njit.edu/profile/${uid}`;
+const PHOTO = uid => `https://uws.njit.edu/ldapimage.php?format=full&uid=${uid}`;
+
+const faculty = {
+  bader:   {name:"David Bader", uid:"bader", url:"https://davidbader.net/", focus:"Massive-scale graph analytics and parallel computing"},
+  dasgupta:{name:"Aritra Dasgupta", uid:"dasg018", url:"https://aedeegee.github.io/", focus:"Visual analytics, human-AI collaboration, and reasoning"},
+  geller:  {name:"James Geller", uid:"geller", url:"http://web.njit.edu/~geller", focus:"Medical informatics, ontologies, and LLM-assisted knowledge engineering", note:"Chair"},
+  hou:     {name:"Xinying Hou", uid:null, url:"https://xinyinghou.org/", focus:"AI in education, computing education, and AI literacy", note:"New"},
+  lijingw: {name:"Lijing Wang", uid:"lw29", url:"https://christa60.github.io/", focus:"Theory-guided ML for networks, time series, and health"},
+  lingxw:  {name:"Lingxiao Wang", uid:"lw324", url:"https://lingxiaowang-ai.github.io/", focus:"Privacy-preserving, distributed, and federated learning"},
+  li:      {name:"Yingcong Li", uid:"yl258", url:"https://yingcong-li.github.io/", focus:"Theory of transformers, in-context learning, and NLP"},
+  nguyen:  {name:"Thanh Nguyen-Tang", uid:"tn294", url:"https://thanhnguyentang.github.io/", focus:"Reinforcement learning theory and learning from offline data"},
+  phan:    {name:"Hai Phan", uid:"phan", url:"https://sites.google.com/site/ihaiphan/", focus:"Differential privacy, federated learning, and robust AI"},
+  rangamani:{name:"Akshay Rangamani", uid:"amr239", url:"https://akshay-r.github.io/", focus:"Science of deep learning, neural collapse, and generalization"},
+  roshan:  {name:"Usman Roshan", uid:"usman", url:"https://web.njit.edu/~usman/", focus:"Adversarially robust learning and medical imaging AI"},
+  wu:      {name:"Chase Wu", uid:"chasewu", url:"https://web.njit.edu/~chasewu/", focus:"Big data workflows, high-performance networking, and clouds"},
+  xu:      {name:"Mengjia Xu", uid:"mx6", url:"https://scholar.google.com/citations?user=Ok1giekAAAAJ&hl=en", focus:"Graph and geometric deep learning, hyperbolic LLMs, brain networks"},
+  zhang:   {name:"Shuai Zhang", uid:"sz457", url:"https://inchs708.github.io/shuaizhang.github.io/index.html", focus:"Theoretical foundations of deep learning and foundation models"},
+  // joint appointments
+  afkhami: {name:"Shahriar Afkhami", uid:"shahriar", url:"https://web.njit.edu/~shahriar/Research/Research.html", focus:"Computational fluid dynamics and numerical methods", joint:"Math"},
+  basuroy: {name:"Senjuti Basu Roy", uid:"senjutib", url:"https://web.njit.edu/~senjutib/", focus:"Data management, data exploration, and human-machine analytics", joint:"CS"},
+  ghosh:   {name:"Arnob Ghosh", uid:"ag2682", url:"https://sites.google.com/site/arnob008/", focus:"Safe reinforcement learning and multi-agent systems", joint:"ECE"},
+  jin:     {name:"Huiran Jin", uid:"hrjin", url:"https://scholar.google.com/citations?user=3nVviVoAAAAJ&hl=en", focus:"Remote sensing and spatiotemporal environmental modeling", joint:"SAET"},
+  jingli:  {name:"Jing Li", uid:"jingli", url:"https://web.njit.edu/~jingli/", focus:"Parallel computing, real-time systems, and RL for system design", joint:"CS"},
+  murphy:  {name:"Kieran Murphy", uid:"km982", url:"https://kieranamurphy.com", focus:"Information theory, interpretable ML, and complex systems", joint:"CS"},
+  sharma:  {name:"Shantanu Sharma", uid:"ss797", url:"https://web.njit.edu/~ss797/", focus:"Database security, privacy, and IoT data systems", joint:"CS"},
+  shen:    {name:"Bo Shen", uid:"bs644", url:"https://sites.google.com/view/boshen", focus:"Physics-informed and generative AI for science and manufacturing", joint:"MIE"},
+  gwang:   {name:"Guiling Wang", uid:"gwang", url:"https://guilinggracewang.github.io/", focus:"Applied AI and LLMs for finance, transportation, and law", joint:"CS"},
+  wei:     {name:"Zhi Wei", uid:"zhiwei", url:"https://web.njit.edu/~zhiwei/", focus:"Statistical learning, genomics, and statistical genetics", joint:"CS"},
+};
+
+const clusters = [
+  {id:"foundations", color:"--c-foundations", short:"AI Foundations",
+   title:"Foundations of Machine Learning",
+   desc:"Modern AI works far better than our theories can explain. Faculty in this cluster study why deep networks, transformers, and reinforcement learners generalize, what structure they learn internally, and how to design training methods that come with guarantees rather than hopes. Students here combine mathematics with careful experiments on real models.",
+   q:["Why do transformers learn new tasks from a few examples in a prompt?","What geometry do deep networks settle into, and what does it tell us about generalization?","How can an agent learn safely from data it collected in the past?"],
+   people:["zhang","rangamani","li","nguyen","lingxw","xu","lijingw","ghosh","murphy"]},
+  {id:"human", color:"--c-human", short:"Human-centered AI",
+   title:"Human-Centered AI, Reasoning, and Visualization",
+   desc:"AI systems are only useful if people can understand, question, and build on what they produce. This cluster studies how people and AI reason together: interactive visual interfaces for analysis, methods that expose the evidence behind a model's claim, interpretable representations, and tools that help learners grow alongside AI rather than depend on it.",
+   q:["How can a visualization help someone check whether an AI's reasoning holds up?","What should students learn, and how should they learn it, when AI can write code?","How do we keep humans meaningfully in the loop when data work is automated?"],
+   people:["dasgupta","hou","li","murphy","geller","basuroy","xu"]},
+  {id:"trust", color:"--c-trust", short:"Trustworthy AI",
+   title:"Trustworthy, Private, and Secure AI",
+   desc:"Deploying AI in hospitals, banks, and public agencies raises hard requirements: models must protect the people in their training data, resist manipulation, and behave safely when conditions change. Faculty here develop differential privacy and federated learning methods, defenses against adversarial attacks, secure data processing, and learning algorithms with provable safety constraints.",
+   q:["Can a large model be fine-tuned on sensitive records without leaking any individual?","How do we certify that a classifier will not be fooled by small, deliberate changes?","What does it take for a learning agent to stay within safety limits while it explores?"],
+   people:["phan","lingxw","roshan","sharma","ghosh","zhang","gwang"]},
+  {id:"systems", color:"--c-systems", short:"High-Performance Analytics",
+   title:"Scalable Data Systems and High-Performance Analytics",
+   desc:"Some questions only become answerable when you can process billions of records interactively. This cluster builds the algorithms, software, and infrastructure that make that possible: parallel graph analytics on supercomputers, scientific workflows across clouds, fast data transfer over high-performance networks, and data management that stays efficient and secure at scale.",
+   q:["How can a data scientist explore a trillion-edge graph from a Python notebook?","Where should each step of a scientific workflow run to meet a deadline and a budget?","How do we query encrypted data in the cloud without giving up speed?"],
+   people:["bader","wu","jingli","basuroy","sharma","afkhami","gwang"]},
+  {id:"health", color:"--c-health", short:"Health and life sciences",
+   title:"AI for Health and the Life Sciences",
+   desc:"Health data is messy, multimodal, and high stakes. Faculty in this cluster work with clinical notes, medical images, brain recordings, genomic data, and biomedical ontologies, developing models that clinicians and scientists can rely on. Projects range from forecasting epidemics and tracking disease progression to organizing medical knowledge with language models.",
+   q:["Can graph models of brain activity reveal early signs of cognitive decline?","How can language models help curate and extend medical terminologies safely?","What makes an epidemic forecast trustworthy enough to guide policy?"],
+   people:["geller","lijingw","xu","roshan","wei","murphy"]},
+  {id:"society", color:"--c-society", short:"Science and society",
+   title:"AI for Science, Engineering, and Society",
+   desc:"Data science matters most when it changes how a field works. This cluster applies and adapts AI to physical sciences, engineering, finance, education, and communities: learning from satellite imagery and fluid simulations, guiding advanced manufacturing, analyzing financial systems, and designing tools that help communities in Newark and beyond understand the science that affects them.",
+   q:["How can physics-informed models make manufacturing faster and more reliable?","What can decades of satellite imagery tell us about how land and water are changing?","How should AI communicate environmental health risks to the people who face them?"],
+   people:["shen","jin","afkhami","dasgupta","hou","gwang","wu"]},
+];
+
+const initials = n => n.split(" ").map(w=>w[0]).filter((c,i,a)=>i===0||i===a.length-1).join("");
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+/* ---------- cluster art: generated, self-contained SVG ---------- */
+function rng(seed){ let s=seed; return ()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0, s=(s^s+Math.imul(s^s>>>7,61|s))^s, ((s^s>>>14)>>>0)/4294967296)); }
+function art(id){
+  const W=400,H=300; const c=`var(${clusters.find(k=>k.id===id).color})`; let g="";
+  const r=rng(id.length*7919+13);
+  if(id==="foundations"){ // loss landscape with a descent path
+    for(let i=1;i<=11;i++) g+=`<ellipse cx="250" cy="170" rx="${i*17}" ry="${i*11}" transform="rotate(-18 250 170)" fill="none" stroke="${c}" stroke-opacity="${.12+i*.03}" stroke-width="1.3"/>`;
+    let x=40,y=40,pts=[];
+    for(let k=0;k<14;k++){pts.push([x,y]); x+= (250-x)*.28+ (r()-.5)*18; y+=(170-y)*.28+(r()-.5)*18;}
+    g+=`<polyline points="${pts.map(p=>p.join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="2.4"/>`;
+    pts.forEach((p,i)=>g+=`<circle cx="${p[0]}" cy="${p[1]}" r="${i===pts.length-1?7:3.5}" fill="${c}"/>`);
+  }
+  if(id==="human"){ // parallel coordinates
+    const ax=[50,125,200,275,350];
+    ax.forEach(a=>g+=`<line x1="${a}" y1="40" x2="${a}" y2="260" stroke="currentColor" stroke-opacity=".35" stroke-width="1.4"/>`);
+    for(let l=0;l<26;l++){ const hi=l<4; let pts=ax.map((a,i)=>`${a},${hi? 70+i*18+r()*20 : 45+r()*210}`).join(" ");
+      g+=`<polyline points="${pts}" fill="none" stroke="${c}" stroke-opacity="${hi?.95:.2}" stroke-width="${hi?2.4:1.2}"/>`;}
+    g+=`<rect x="185" y="62" width="30" height="80" rx="4" fill="${c}" fill-opacity=".12" stroke="${c}" stroke-width="1.4"/>`;
+  }
+  if(id==="trust"){ // clean lattice inside a boundary, noise outside
+    for(let i=0;i<20;i++)for(let j=0;j<15;j++){
+      const x=20+i*19.5,y=15+j*19.5; const inside=Math.hypot(x-200,y-150)<95;
+      const jx=inside?0:(r()-.5)*12, jy=inside?0:(r()-.5)*12;
+      g+=`<circle cx="${x+jx}" cy="${y+jy}" r="${inside?3.2:2}" fill="${c}" fill-opacity="${inside?.9:.25}"/>`;}
+    g+=`<circle cx="200" cy="150" r="102" fill="none" stroke="${c}" stroke-width="2.2" stroke-dasharray="7 6"/>`;
+  }
+  if(id==="systems"){ // partitioned graph across compute nodes
+    const nodes=[]; for(let i=0;i<46;i++) nodes.push([30+r()*340,30+r()*240]);
+    nodes.forEach((a,i)=>nodes.forEach((b,j)=>{ if(j>i && Math.hypot(a[0]-b[0],a[1]-b[1])<62) g+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-opacity=".35" stroke-width="1.1"/>`;}));
+    nodes.forEach((a,i)=>g+=`<circle cx="${a[0]}" cy="${a[1]}" r="${i%9===0?7:3.2}" fill="${c}"/>`);
+    [133,266].forEach(x=>g+=`<line x1="${x}" y1="14" x2="${x}" y2="286" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="3 5"/>`);
+  }
+  if(id==="health"){ // double helix plus signal trace
+    for(let t=0;t<=40;t++){ const x=30+t*8.5, a=Math.sin(t*.42)*38, b=-a;
+      if(t%2===0) g+=`<line x1="${x}" y1="${110+a}" x2="${x}" y2="${110+b}" stroke="${c}" stroke-opacity=".3" stroke-width="1.4"/>`;
+      g+=`<circle cx="${x}" cy="${110+a}" r="3.4" fill="${c}"/><circle cx="${x}" cy="${110+b}" r="3.4" fill="${c}" fill-opacity=".45"/>`; }
+    let p="M20 235"; for(let x=20;x<=380;x+=6){ const k=(x-20)%84; const y=k>40&&k<48?235-(k-40)*9:k>=48&&k<54?199+(k-48)*14:235+(r()-.5)*3; p+=` L${x} ${y}`;}
+    g+=`<path d="${p}" fill="none" stroke="${c}" stroke-width="2.2"/>`;
+  }
+  if(id==="society"){ // terrain / satellite-like ridgelines
+    for(let l=0;l<14;l++){ let d=`M0 ${300}`; const base=70+l*16; const ph=r()*6;
+      for(let x=0;x<=400;x+=10){ const y=base-Math.max(0,Math.sin(x/47+ph)*18+Math.sin(x/19+l)*7);
+        d+=` L${x} ${y}`;} d+=` L400 300 Z`;
+      g+=`<path d="${d}" fill="var(--surface)" stroke="${c}" stroke-opacity="${.3+l*.05}" stroke-width="1.3"/>`;}
+    g+=`<circle cx="320" cy="50" r="18" fill="none" stroke="${c}" stroke-width="2"/>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Abstract illustration for ${esc(clusters.find(k=>k.id===id).title)}" preserveAspectRatio="xMidYMid slice" style="color:var(--ink)">${g}</svg>`;
+}
+
+/* ---------- cluster sections ---------- */
+const host=document.getElementById("clusters");
+const nav=document.getElementById("topnav");
+clusters.forEach(k=>{
+  nav.insertAdjacentHTML("beforeend",`<a href="#${k.id}">${esc(k.short)}</a>`);
+  const people=k.people.map(pid=>{const f=faculty[pid];
+    const av=f.uid?`<img src="${PHOTO(f.uid)}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${initials(f.name)}'))">`:initials(f.name);
+    const tag=f.joint?`<span class="tag">Joint, ${f.joint}</span>`:(f.note?`<span class="tag">${f.note}</span>`:"");
+    return `<a class="person${f.joint?" joint":""}" href="${f.url}" target="_blank" rel="noopener">
+      <span class="avatar">${av}</span>
+      <span><span class="nm">${esc(f.name)}${tag}</span><span class="fx" style="display:block">${esc(f.focus)}</span></span></a>`;}).join("");
+  host.insertAdjacentHTML("beforeend",`
+  <article class="cluster" id="${k.id}" style="--cc:var(${k.color})">
+    <div class="art">${art(k.id)}</div>
+    <div class="cl-body">
+      <h2>${esc(k.title)}</h2>
+      <p class="desc">${esc(k.desc)}</p>
+      <ul class="questions">${k.q.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      <div class="people">${people}</div>
+    </div>
+  </article>`);
+});
+nav.insertAdjacentHTML("beforeend",`<a href="#apply">Apply</a>`);
+
+/* ---------- membership map ---------- */
+(function(){
+  const map=document.getElementById("map");
+  // order faculty by first cluster appearance so edges stay tidy
+  const order=[]; clusters.forEach(k=>k.people.forEach(p=>{if(!order.includes(p))order.push(p)}));
+  const W=1100, rowH=26, H=Math.max(order.length*rowH+30, 420);
+  const cx=270, fx=760;
+  const cy=i=> 40 + i*((H-80)/(clusters.length-1));
+  const fy=i=> 24 + i*rowH;
+  let s=`<svg viewBox="0 0 ${W} ${H}" aria-hidden="false">`;
+  clusters.forEach((k,ci)=>k.people.forEach(p=>{const fi=order.indexOf(p);
+    s+=`<path class="edge" data-c="${k.id}" data-f="${p}" stroke="var(${k.color})" ${faculty[p].joint?'stroke-dasharray="5 4"':''} d="M${cx+14} ${cy(ci)} C ${(cx+fx)/2} ${cy(ci)}, ${(cx+fx)/2} ${fy(fi)}, ${fx-10} ${fy(fi)}"/>`;}));
+  clusters.forEach((k,ci)=>{
+    s+=`<g class="clu" data-c="${k.id}" tabindex="0" role="link" aria-label="${esc(k.title)}, ${k.people.length} faculty">
+      <circle cx="${cx}" cy="${cy(ci)}" r="11" fill="var(${k.color})"/>
+      <text x="${cx-22}" y="${cy(ci)+5}" text-anchor="end" fill="var(${k.color})">${esc(k.short)}</text>
+      <text class="count" x="${cx-22}" y="${cy(ci)+23}" text-anchor="end">${k.people.length} faculty</text></g>`;});
+  order.forEach((p,fi)=>{const f=faculty[p]; const n=clusters.filter(k=>k.people.includes(p)).length;
+    s+=`<g class="fac" data-f="${p}" tabindex="0" aria-label="${esc(f.name)}, ${n} clusters">
+      <circle cx="${fx-4}" cy="${fy(fi)}" r="4.5" fill="var(--ink)"/>
+      <text x="${fx+8}" y="${fy(fi)+4.5}">${esc(f.name)}<tspan class="joint" dx="8">${f.joint?"joint, "+f.joint:""}</tspan></text></g>`;});
+  s+=`</svg>`; map.innerHTML=s;
+
+  const clear=()=>{map.classList.remove("focus"); map.querySelectorAll(".on").forEach(e=>e.classList.remove("on"));};
+  const lightFac=p=>{clear(); map.classList.add("focus");
+    map.querySelectorAll(`[data-f="${p}"]`).forEach(e=>e.classList.add("on"));
+    map.querySelectorAll(`.edge[data-f="${p}"]`).forEach(e=>map.querySelector(`.clu[data-c="${e.dataset.c}"]`).classList.add("on"));};
+  const lightClu=c=>{clear(); map.classList.add("focus");
+    map.querySelectorAll(`[data-c="${c}"]`).forEach(e=>e.classList.add("on"));
+    map.querySelectorAll(`.edge[data-c="${c}"]`).forEach(e=>map.querySelector(`.fac[data-f="${e.dataset.f}"]`).classList.add("on"));};
+  map.querySelectorAll(".fac").forEach(g=>{
+    g.addEventListener("mouseenter",()=>lightFac(g.dataset.f));
+    g.addEventListener("focus",()=>lightFac(g.dataset.f));
+    g.addEventListener("click",()=>lightFac(g.dataset.f));
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"){window.open(faculty[g.dataset.f].url,"_blank","noopener")}});
+  });
+  map.querySelectorAll(".clu").forEach(g=>{
+    g.addEventListener("mouseenter",()=>lightClu(g.dataset.c));
+    g.addEventListener("focus",()=>lightClu(g.dataset.c));
+    const go=()=>document.getElementById(g.dataset.c).scrollIntoView();
+    g.addEventListener("click",go);
+    g.addEventListener("keydown",e=>{if(e.key==="Enter")go();});
+  });
+  map.addEventListener("mouseleave",clear);
+})();
+</script>
+</body>
+</html>
